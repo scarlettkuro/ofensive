@@ -22,6 +22,6 @@ class Url {
     }
     
     public static function custom($name) {
-        return "/{$name}--html";
+        return "/{$name}.html";
     }
 }
