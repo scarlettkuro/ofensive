@@ -25,8 +25,8 @@
 <?php endif; ?>
 
 <!-- Character group -->
-<?php if (isset($article->group)) : ?>
 <?php $group = $article->group; ?>
+<?php if (isset($group)) : ?>
 <div id="portfolio-wrapper">
     <div id="portfolio" class="container">
         <div class="major">

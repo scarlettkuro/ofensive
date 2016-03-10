@@ -51,7 +51,7 @@ class Article {
     }
     
     public function getGroup() {
-        if (!isset($this->group))
+        if (!isset($this->json->group))
             return NULL;
         
         $this->group = new Group($this->json->group,$this->type);
