@@ -51,8 +51,26 @@ class Article {
     }
     
     public function getGroup() {
+        if (!isset($this->group))
+            return NULL;
         
         $this->group = new Group($this->json->group,$this->type);
         return $this->group;
+    }
+    
+    public static function getArticles($type) {
+        $articles = [];
+        foreach (scandir(DATA . "/articles/{$type}s/") as $slug) {
+            if (!is_dir(DATA . "/articles/{$type}s/$slug")) {
+                //remove extension
+                $g = explode(".", $slug);
+                array_pop($g);
+                $g = implode(".",$g);
+                //add group
+                $articles[$g] = new Article($g, $type);
+            }
+        }
+        
+        return $articles;
     }
 }

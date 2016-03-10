@@ -18,10 +18,14 @@ class Url {
     }
     
     public static function article($name, $type) {
-        return "/{$type}s/{$name}";
+        return "/{$type}/{$name}";
     }
     
     public static function custom($name) {
         return "/{$name}.html";
+    }
+    
+    public static function story() {
+        return "/story";
     }
 }

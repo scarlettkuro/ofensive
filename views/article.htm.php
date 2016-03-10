@@ -25,6 +25,7 @@
 <?php endif; ?>
 
 <!-- Character group -->
+<?php if (isset($article->group)) : ?>
 <?php $group = $article->group; ?>
 <div id="portfolio-wrapper">
     <div id="portfolio" class="container">
@@ -45,3 +46,4 @@
             <?php endforeach; ?>	
     </div>
 </div>
+<?php endif; ?>	

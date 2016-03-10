@@ -19,4 +19,5 @@
 	<p><strong>Викрадення тварин</strong> — 2 роки за невиплату викупу</p>
 	<p><strong>Погрбування мерців</strong> — 2 роки</p>
     </div>
+    <img src="/data/images/auCKTp5GgFo.jpg" style="display: block;margin:0 auto;"/>
 </div>

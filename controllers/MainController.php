@@ -5,6 +5,12 @@ class MainController {
         return self::custom('index');
     }
     
+    static function story() {
+        set('articles', Article::getArticles('story'));
+        set('type', 'story');
+        return render("story.htm.php", 'layout.htm.php');
+    }
+    
     static function custom($name) {
         return render("$name.htm.php", 'layout.htm.php');
     }

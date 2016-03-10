@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="logo" class="container">
-	<h1><a href="/" class="icon icon-tasks"><span><?= GAMENAME ?></span></a></h1>
+    <h1><a href="/" class="icon "><span><?= Utils::gameName() ?></span></a></h1>
 </div>
 <div id="header">
     <div id="menu" class="container">
@@ -21,11 +21,12 @@
                 ['label' => 'Дійові особи', 'url' => Url::articles('player')],
                 ['label' => 'Персонажі', 'url' => Url::articles('character')],
                 ['label' => 'Місця', 'url' => Url::articles('place')],
-                ['label' => 'Події', 'url' => '/event'],
+                ['label' => 'Події', 'url' => Url::story()],
                 ['label' => 'Злочини', 'url' => Url::custom('crimes')],
             ]; ?>
             <?php foreach ($menu as $item) : ?>
-            <li><a href="<?= $item['url'] ?>" <?= explode("/",$item['url'])[1] == explode("/",$_SERVER['REQUEST_URI'])[1] ? "style='background-color:black;'" : ""?> ><?= $item['label'] ?></a></li>
+            <?php $part1 = explode("/",$item['url'])[1]; $part2 = explode("/",$_SERVER['REQUEST_URI'])[1]; ?>
+            <li><a href="<?= $item['url'] ?>" <?= ($part1==$part2) || ($part1==$part2 . "s")? "style='background-color:black;'" : ""?> ><?= $item['label'] ?></a></li>
             <?php endforeach; ?>
         </ul>
     </div>
