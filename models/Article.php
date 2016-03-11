@@ -62,15 +62,19 @@ class Article {
         $articles = [];
         foreach (scandir(DATA . "/articles/{$type}s/") as $slug) {
             if (!is_dir(DATA . "/articles/{$type}s/$slug")) {
-                //remove extension
-                $g = explode(".", $slug);
-                array_pop($g);
-                $g = implode(".",$g);
-                //add group
-                $articles[$g] = new Article($g, $type);
+                $nslug  = Utils::removeExtension($slug);
+                $articles[$nslug] = new Article($nslug, $type);
             }
         }
         
         return $articles;
+    }
+    
+    public static function getTypeInfo($type) {
+        return new TypeInfo($type);      
+    }
+    
+    public static function isType($type) {
+        return is_dir(DATA . "/articles/{$type}s");      
     }
 }

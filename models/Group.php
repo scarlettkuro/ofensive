@@ -29,12 +29,8 @@ class Group {
         $groups = [];
         foreach (scandir(DATA . "/articles/{$type}s/groups") as $slug) {
             if (!is_dir(DATA . "/articles/{$type}s/groups/$slug")) {
-                //remove extension
-                $g = explode(".", $slug);
-                array_pop($g);
-                $g = implode(".",$g);
-                //add group
-                $groups[$g] = new Group($g, $type);
+                $nslug  = Utils::removeExtension($slug);
+                $groups[$nslug] = new Group($nslug, $type);
             }
         }
         

@@ -14,9 +14,15 @@ class Utils {
             "Офензîва",
             "Оθензива",
             "Офензиўа",
-            "ОфеĤзива",
+            "ОфеNзива",
         ];
         $i = rand(0, count($variants) - 1);
         return $variants[$i];
+    }
+    
+    public static function removeExtension($filename) {
+        $g = explode(".", $filename);
+        array_pop($g);
+        return implode(".",$g);
     }
 }

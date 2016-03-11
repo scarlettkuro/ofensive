@@ -1,15 +1,10 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of Url
  *
  * @author kuro
+ * This class creates URL's and their templates for router
  */
 class Url {
     
@@ -22,10 +17,6 @@ class Url {
     }
     
     public static function custom($name) {
-        return "/{$name}.html";
-    }
-    
-    public static function story() {
-        return "/story";
+        return "/{$name}:html";
     }
 }

@@ -21,7 +21,8 @@
                 ['label' => 'Дійові особи', 'url' => Url::articles('player')],
                 ['label' => 'Персонажі', 'url' => Url::articles('character')],
                 ['label' => 'Місця', 'url' => Url::articles('place')],
-                ['label' => 'Події', 'url' => Url::story()],
+                ['label' => 'Події', 'url' => Url::articles('event')],
+                ['label' => 'Записи', 'url' => Url::articles('part')],
                 ['label' => 'Злочини', 'url' => Url::custom('crimes')],
             ]; ?>
             <?php foreach ($menu as $item) : ?>

@@ -4,17 +4,19 @@ define('DATA', __DIR__ . '/data');
 define('GAMENAME', 'Офензива');
 
 require_once 'lib/limonade.php';
-require_once 'models/Article.php';
-require_once 'models/Group.php';
-require_once 'models/Url.php';
-require_once 'models/Utils.php';
+
+
+function __autoload($class_name) {
+    include "models/$class_name.php";
+}
 
 dispatch('/css/:style', 'AssetController::css');
 
+//this two are always top
 dispatch('/', 'MainController::index');
-dispatch(Url::story(), 'MainController::story');
-dispatch(Url::custom("*"), 'MainController::custom');
+dispatch(Url::custom("*"), 'MainController::custom'); // * = :name
+//other
 dispatch(Url::articles("*"), 'MainController::articles'); // * = :type
-dispatch(Url::article("*","*"), 'MainController::article'); // * = :type
+dispatch(Url::article("*","*"), 'MainController::article'); // 1* = :type, 2* = :name
 run();
 ?>
